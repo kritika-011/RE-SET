@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { API_BASE_URL } from './config'
 
 const MOOD_LABELS = {
   overwhelmed: '🌊 Overwhelmed',
@@ -17,7 +18,7 @@ function InsightsPage({ userId, onBack }) {
 
     async function load() {
       try {
-        const res = await fetch(`http://localhost:8000/missions/insights/${userId}`)
+        const res = await fetch(`${API_BASE_URL}/missions/insights/${userId}`)
         if (!res.ok) throw new Error('Could not load insights')
         const data = await res.json()
         if (!cancelled) setInsights(data)

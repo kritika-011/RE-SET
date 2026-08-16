@@ -8,6 +8,10 @@ import Feedback from './Feedback'
 import Completion from './Completion'
 import HistoryPage from './HistoryPage'
 import InsightsPage from './InsightsPage'
+<<<<<<< HEAD
+=======
+import { API_BASE_URL } from './config'
+>>>>>>> 6a29db33a5169c85bdacbba59e479e233b3d52b5
 import './App.css'
 
 const USER_ID_KEY = 'resetapp_user_id'
@@ -28,7 +32,7 @@ function App() {
     setError(null)
     try {
       const minutes = parseInt(time, 10)
-      const res = await fetch('http://localhost:8000/generate-mission', {
+      const res = await fetch(`${API_BASE_URL}/generate-mission`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -96,7 +100,7 @@ function App() {
   const handleRerollClue = async (index) => {
     const originalClue = mission[index].clue
     try {
-      const res = await fetch('http://localhost:8000/generate-mission/reroll-step', {
+      const res = await fetch(`${API_BASE_URL}/generate-mission/reroll-step`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ mood: checkIn.mood, originalClue }),
@@ -148,13 +152,8 @@ function App() {
   return (
     <div className="app-shell">
       <header className="app-header">
-        <button
-          type="button"
-          className="brand"
-          onClick={() => setCurrentScreen('landing')}
-          aria-label="Go to home"
-        >
-          <svg width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
+        <span className="brand">
+          <svg width="16" height="16" viewBox="0 0 32 32" aria-hidden="true">
             <path
               d="M9 12a7.5 7.5 0 1 1 1.2 7.4"
               fill="none"
@@ -172,7 +171,7 @@ function App() {
             />
           </svg>
           RESET
-        </button>
+        </span>
       </header>
 
       {currentScreen === 'auth' && <Auth onAuthComplete={handleAuthComplete} />}

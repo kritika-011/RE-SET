@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import ScaleInput from './ScaleInput'
+import { API_BASE_URL } from './config'
 
 const REACTIONS = [
   { value: 'much_better', emoji: '😌', label: 'Much better' },
@@ -22,7 +23,7 @@ function Feedback({ userId, checkIn, selectedTime, resetType, onComplete }) {
     const minutes = parseInt(selectedTime, 10)
     let deltas = null
     try {
-      const res = await fetch('http://localhost:8000/missions/complete', {
+      const res = await fetch(`${API_BASE_URL}/missions/complete`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
