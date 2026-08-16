@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { API_BASE_URL } from './config'
 
 function Auth({ onAuthComplete }) {
   const [mode, setMode] = useState('signup')
@@ -15,7 +16,7 @@ function Auth({ onAuthComplete }) {
     setSubmitting(true)
     try {
       const endpoint = isSignup ? 'signup' : 'login'
-      const res = await fetch(`http://localhost:8000/${endpoint}`, {
+      const res = await fetch(`${API_BASE_URL}/${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),

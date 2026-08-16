@@ -8,6 +8,7 @@ import Feedback from './Feedback'
 import Completion from './Completion'
 import HistoryPage from './HistoryPage'
 import InsightsPage from './InsightsPage'
+import { API_BASE_URL } from './config'
 import './App.css'
 
 const USER_ID_KEY = 'resetapp_user_id'
@@ -28,7 +29,7 @@ function App() {
     setError(null)
     try {
       const minutes = parseInt(time, 10)
-      const res = await fetch('http://localhost:8000/generate-mission', {
+      const res = await fetch(`${API_BASE_URL}/generate-mission`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -96,7 +97,7 @@ function App() {
   const handleRerollClue = async (index) => {
     const originalClue = mission[index].clue
     try {
-      const res = await fetch('http://localhost:8000/generate-mission/reroll-step', {
+      const res = await fetch(`${API_BASE_URL}/generate-mission/reroll-step`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ mood: checkIn.mood, originalClue }),

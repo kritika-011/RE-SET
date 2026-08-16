@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { API_BASE_URL } from './config'
 
 const REACTION_LABELS = {
   much_better: { emoji: '😌', label: 'Much better' },
@@ -51,7 +52,7 @@ function Completion({
   useEffect(() => {
     if (!userId) return
     let cancelled = false
-    fetch(`http://localhost:8000/missions/streak/${userId}`)
+    fetch(`${API_BASE_URL}/missions/streak/${userId}`)
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => {
         if (!cancelled && data) setStreak(data.streak)

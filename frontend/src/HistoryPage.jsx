@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { API_BASE_URL } from './config'
 
 const MOOD_EMOJI = {
   overwhelmed: '🌊',
@@ -59,8 +60,8 @@ function HistoryPage({ userId, onBack }) {
     async function load() {
       try {
         const [historyRes, streakRes] = await Promise.all([
-          fetch(`http://localhost:8000/missions/history/${userId}`),
-          fetch(`http://localhost:8000/missions/streak/${userId}`),
+          fetch(`${API_BASE_URL}/missions/history/${userId}`),
+          fetch(`${API_BASE_URL}/missions/streak/${userId}`),
         ])
         if (!historyRes.ok || !streakRes.ok) {
           throw new Error('Could not load history')
