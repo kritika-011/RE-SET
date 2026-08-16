@@ -148,8 +148,13 @@ function App() {
   return (
     <div className="app-shell">
       <header className="app-header">
-        <span className="brand">
-          <svg width="16" height="16" viewBox="0 0 32 32" aria-hidden="true">
+        <button
+          type="button"
+          className="brand"
+          onClick={() => setCurrentScreen('landing')}
+          aria-label="Go to home"
+        >
+          <svg width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
             <path
               d="M9 12a7.5 7.5 0 1 1 1.2 7.4"
               fill="none"
@@ -167,7 +172,7 @@ function App() {
             />
           </svg>
           RESET
-        </span>
+        </button>
       </header>
 
       {currentScreen === 'auth' && <Auth onAuthComplete={handleAuthComplete} />}

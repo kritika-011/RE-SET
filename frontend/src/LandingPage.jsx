@@ -14,18 +14,18 @@ function LandingPage({ onGetStarted, onImStuck }) {
 
       <div className="landing-content">
         <span className="landing-brand">
-          <svg width="18" height="18" viewBox="0 0 32 32" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true">
             <path
               d="M9 12a7.5 7.5 0 1 1 1.2 7.4"
               fill="none"
-              stroke="#FFD166"
+              stroke="var(--coral)"
               strokeWidth="3"
               strokeLinecap="round"
             />
             <path
               d="M9 7v5.4H14.2"
               fill="none"
-              stroke="#FFD166"
+              stroke="var(--coral)"
               strokeWidth="3"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -52,12 +52,12 @@ function LandingPage({ onGetStarted, onImStuck }) {
           </div>
           <span className="hero-sun">☀</span>
           <svg className="hero-walker" width="36" height="52" viewBox="0 0 40 56" fill="none">
-            <circle cx="20" cy="8" r="6" fill="#FFF8F3" />
-            <path d="M20 14 L20 32" stroke="#FFF8F3" strokeWidth="3" strokeLinecap="round" />
-            <path d="M20 20 L10 26" stroke="#FFF8F3" strokeWidth="3" strokeLinecap="round" />
-            <path d="M20 20 L30 16" stroke="#FFF8F3" strokeWidth="3" strokeLinecap="round" />
-            <path d="M20 32 L12 48" stroke="#FFF8F3" strokeWidth="3" strokeLinecap="round" />
-            <path d="M20 32 L28 44" stroke="#FFF8F3" strokeWidth="3" strokeLinecap="round" />
+            <circle cx="20" cy="8" r="6" fill="var(--deep)" />
+            <path d="M20 14 L20 32" stroke="var(--deep)" strokeWidth="3" strokeLinecap="round" />
+            <path d="M20 20 L10 26" stroke="var(--deep)" strokeWidth="3" strokeLinecap="round" />
+            <path d="M20 20 L30 16" stroke="var(--deep)" strokeWidth="3" strokeLinecap="round" />
+            <path d="M20 32 L12 48" stroke="var(--deep)" strokeWidth="3" strokeLinecap="round" />
+            <path d="M20 32 L28 44" stroke="var(--deep)" strokeWidth="3" strokeLinecap="round" />
           </svg>
           <div className="hero-dots">
             <span />
