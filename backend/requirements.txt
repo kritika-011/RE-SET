@@ -3,3 +3,7 @@ uvicorn
 google-generativeai
 python-dotenv
 pydantic
+sqlalchemy
+bcrypt
+pytest
+httpx

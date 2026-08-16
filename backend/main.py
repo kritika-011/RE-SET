@@ -4,7 +4,8 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from routes import health, mission
+from database import Base, engine
+from routes import auth, health, mission, missions
 
 logging.basicConfig(
     level=logging.INFO,
@@ -12,6 +13,8 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger(__name__)
+
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
@@ -25,6 +28,8 @@ app.add_middleware(
 
 app.include_router(health.router)
 app.include_router(mission.router)
+app.include_router(auth.router)
+app.include_router(missions.router)
 
 
 @app.exception_handler(Exception)
